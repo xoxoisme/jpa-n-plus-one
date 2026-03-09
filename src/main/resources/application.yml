@@ -4,18 +4,21 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password:
+
   h2:
     console:
       enabled: true
+
   jpa:
     hibernate:
       ddl-auto: create-drop
-    show-sql: true
     properties:
       hibernate:
         format_sql: false
-        default_batch_fetch_size: 0  # N+1 확인용 (나중에 100 등으로 바꿔서 배치 조회 비교 가능)
+        default_batch_fetch_size: 0  # N+1 확인용
 
 logging:
+  pattern:
+    console: "%msg%n"   # 로그 포맷 단순화 → SQL만 출력
   level:
     org.hibernate.SQL: debug
